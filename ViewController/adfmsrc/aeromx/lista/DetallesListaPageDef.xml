@@ -5,6 +5,18 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="PasajTick1" RangeSize="25" DataControl="AMListaDataControl"
+              id="PasajTick1Iterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <tree IterBinding="PasajTick1Iterator" id="PasajTick1">
+      <nodeDefinition DefName="oracle.aeromx.com.pyd.lista.vo.PasajTick"
+                      Name="PasajTick10">
+        <AttrNames>
+          <Item Value="Pasajero"/>
+          <Item Value="TktEmitido"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
 </pageDefinition>

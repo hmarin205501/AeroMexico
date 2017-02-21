@@ -9,7 +9,7 @@
   PackageName="com.ms.demo.model">
   <DesignTime>
     <Attr Name="_jprName" Value="../../../../../Model.jpr"/>
-    <Attr Name="_NamedConnection" Value="Conn_daemxi"/>
+    <Attr Name="_NamedConnection" Value="Conn_MS_aeromex"/>
     <Attr Name="_appModuleNames0"
       Value="oracle.aeromx.com.pyd.lista.am.AMLista"/>
   </DesignTime>

@@ -12,6 +12,24 @@
       <af:form id="f1"
                binding="#{backingBeanScope.backing_aeromx_lista_DetallesLista.f1}">
         <af:pageTemplate viewId="/template.jspx" id="pt1"/>
+        <af:table value="#{bindings.PasajTick1.collectionModel}" var="row"
+                  rows="#{bindings.PasajTick1.rangeSize}"
+                  emptyText="#{bindings.PasajTick1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.PasajTick1.rangeSize}"
+                  rowBandingInterval="0"
+                  binding="#{backingBeanScope.backing_aeromx_lista_DetallesLista.t1}"
+                  id="t1">
+          <af:column sortProperty="Pasajero" sortable="false"
+                     headerText="#{bindings.PasajTick1.hints.Pasajero.label}"
+                     id="c2">
+            <af:outputText value="#{row.Pasajero}" id="ot3"/>
+          </af:column>
+          <af:column sortProperty="TktEmitido" sortable="false"
+                     headerText="#{bindings.PasajTick1.hints.TktEmitido.label}"
+                     id="c1">
+            <af:outputText value="#{row.TktEmitido}" id="ot4"/>
+          </af:column>
+        </af:table>
       </af:form>
     </af:document>
   </f:view>

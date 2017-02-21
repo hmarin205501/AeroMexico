@@ -2,12 +2,14 @@ package com.ms.demo.view.backing.aeromx.lista;
 
 import oracle.adf.view.rich.component.rich.RichDocument;
 import oracle.adf.view.rich.component.rich.RichForm;
+import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.output.RichMessages;
 
 public class DetallesLista {
     private RichForm f1;
     private RichDocument d1;
     private RichMessages m1;
+    private RichTable t1;
 
     public void setF1(RichForm f1) {
         this.f1 = f1;
@@ -35,4 +37,11 @@ public class DetallesLista {
     }
 
 
+    public void setT1(RichTable t1) {
+        this.t1 = t1;
+    }
+
+    public RichTable getT1() {
+        return t1;
+    }
 }
