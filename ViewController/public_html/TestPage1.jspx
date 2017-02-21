@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelBorderLayout id="pbl1" inlineStyle="height:41px;">
+          <f:facet name="end">
+            <af:outputText value="#{CurrentDate.date}" id="ot1"
+                           inlineStyle="font-size:medium;"/>
+          </f:facet>
+          <af:outputLabel value="AeroMéxico" id="ol1"
+                          inlineStyle="font-size:medium;"/>
+        </af:panelBorderLayout>
+        <af:separator id="s1" inlineStyle="height:10px;"/>
+        <af:panelBorderLayout id="pbl2">
+          <f:facet name="start"/>
+          <f:facet name="bottom"/>
+          <f:facet name="end"/>
+          <f:facet name="top"/>
+        </af:panelBorderLayout>
+        <af:panelStretchLayout id="psl1"
+                               inlineStyle="width:1330px; height:203px;"
+                               startWidth="287px" endWidth="381px"
+                               topHeight="52px">
+          <f:facet name="center">
+            <af:commandLink text="Aviso de privacidad" id="cl1"
+                            inlineStyle="color:Red; font-weight:bolder;"/>
+          </f:facet>
+          <f:facet name="start">
+            <af:outputText value="Derechos reservados" id="ot2"
+                           inlineStyle="font-weight:bolder;"/>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:CurrentDate-->
+</jsp:root>

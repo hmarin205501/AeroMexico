@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>templateDef1</display-name>
+      </component>
+    </af:xmlContent>
+    <af:panelSplitter orientation="vertical" splitterPosition="78" id="pt_ps2">
+      <f:facet name="first">
+        <af:panelGroupLayout layout="scroll"
+                             xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                             id="pt_pgl1">
+          <af:image source="/Images/headerBg.jpg" id="pt_i1"/>
+        </af:panelGroupLayout>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelSplitter orientation="vertical" positionedFromEnd="true"
+                          splitterPosition="50" id="pt_ps1">
+          <f:facet name="first">
+            <af:panelStretchLayout id="pt_psl1" topHeight="57px"
+                                   endWidth="104px" bottomHeight="212px">
+              <f:facet name="bottom">
+                <af:panelStretchLayout id="pt_psl2" startWidth="49px">
+                  <f:facet name="bottom"/>
+                  <f:facet name="center"/>
+                  <f:facet name="start"/>
+                  <f:facet name="end"/>
+                  <f:facet name="top"/>
+                </af:panelStretchLayout>
+              </f:facet>
+              <f:facet name="center"/>
+              <f:facet name="start"/>
+              <f:facet name="end">
+                <af:outputText value="#{CurrentDate.date}" id="ot1"
+                               inlineStyle="font-size:medium; font-weight:bolder;"/>
+              </f:facet>
+            </af:panelStretchLayout>
+            <!-- id="af_one_column_header_and_footer_stretched_with_splitter"   -->
+          </f:facet>
+          <f:facet name="second">
+            <af:panelStretchLayout id="psl1"
+                                   inlineStyle="width:1330px; height:203px;"
+                                   startWidth="287px" endWidth="381px"
+                                   topHeight="52px">
+              <f:facet name="center">
+                <af:commandLink text="Aviso de privacidad" id="cl1"
+                                inlineStyle="color:Red; font-weight:bolder;"/>
+              </f:facet>
+              <f:facet name="start">
+                <af:outputText value="Derechos reservados" id="ot2"
+                               inlineStyle="font-weight:bolder;"/>
+              </f:facet>
+            </af:panelStretchLayout>
+          </f:facet>
+        </af:panelSplitter>
+      </f:facet>
+    </af:panelSplitter>
+  </af:pageTemplateDef>
+</jsp:root>
