@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="oracle.aeromx.com.pyd.lista.am.AMLista">
+      <AppModuleConfig name="AMListaLocal" ApplicationName="oracle.aeromx.com.pyd.lista.am.AMLista" DeployPlatform="LOCAL" JDBCName="Conn_daemxi" jbo.project="com.ms.demo.model.Model">
+         <Security AppModuleJndiName="oracle.aeromx.com.pyd.lista.am.AMLista"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AMListaShared" ApplicationName="oracle.aeromx.com.pyd.lista.am.AMLista" DeployPlatform="LOCAL" JDBCName="Conn_daemxi" jbo.project="com.ms.demo.model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="oracle.aeromx.com.pyd.lista.am.AMLista"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

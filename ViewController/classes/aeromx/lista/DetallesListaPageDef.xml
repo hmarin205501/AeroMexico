@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="DetallesListaPageDef"
+                Package="aeromx.lista">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PasajTick1" RangeSize="25" DataControl="AMListaDataControl"
+              id="PasajTick1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="PasajTick1Iterator" id="PasajTick1">
+      <nodeDefinition DefName="oracle.aeromx.com.pyd.lista.vo.PasajTick"
+                      Name="PasajTick10">
+        <AttrNames>
+          <Item Value="Pasajero"/>
+          <Item Value="TktEmitido"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,10 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <References xmlns="http://xmlns.oracle.com/adf/jndi">
-   <Reference name="Connection1" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="Connection1" xmlns="">
+   <Reference name="Conn_MS_aeromex" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="Conn_MS_aeromex" xmlns="">
       <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
       <RefAddresses>
          <StringRefAddr addrType="sid">
-            <Contents>vis</Contents>
+            <Contents>VIS</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="subtype">
             <Contents>oraJDBC</Contents>
