@@ -5,4 +5,10 @@
     <managed-bean-class id="__1">CurrentDate</managed-bean-class>
     <managed-bean-scope id="__3">request</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__8">
+    <managed-bean-name id="__5">backing_aeromx_lista_DetallesLista</managed-bean-name>
+    <managed-bean-class id="__6">com.ms.demo.view.backing.aeromx.lista.DetallesLista</managed-bean-class>
+    <managed-bean-scope id="__7">backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1aeromx/lista/DetallesLista.jspx-->
+  </managed-bean>
 </adfc-config>

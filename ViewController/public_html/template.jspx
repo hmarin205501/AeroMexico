@@ -10,9 +10,9 @@
         <display-name>templateDef1</display-name>
       </component>
     </af:xmlContent>
-    <af:panelSplitter orientation="vertical" splitterPosition="78" id="pt_ps2">
+    <af:panelSplitter orientation="vertical" splitterPosition="104" id="pt_ps2">
       <f:facet name="first">
-        <af:panelGroupLayout layout="scroll"
+        <af:panelGroupLayout layout="default"
                              xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                              id="pt_pgl1">
           <af:image source="/Images/headerBg.jpg" id="pt_i1"/>
