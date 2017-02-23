@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="DetalleReembolsoPageDef"
+                Package="aeromx.reembolso">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ViewObjReembolso1" RangeSize="25"
+              DataControl="AMReembolsoDataControl"
+              id="ViewObjReembolso1Iterator"/>
+    <iterator Binds="PasajTick1" RangeSize="-1" DataControl="AMListaDataControl"
+              id="PasajTick1Iterator"/>
+    <iterator Binds="PnrsXPersonID1" RangeSize="25"
+              DataControl="AMReembolsoDataControl" id="PnrsXPersonID1Iterator"/>
+    <iterator Binds="PasajerosPorPNR1" RangeSize="25"
+              DataControl="AMReembolsoDataControl"
+              id="PasajerosPorPNR1Iterator"/>
+    <iterator Binds="DetalleItinerario2" RangeSize="25"
+              DataControl="AMReembolsoDataControl"
+              id="DetalleItinerario2Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ViewObjReembolso1Iterator" id="GlobalName">
+      <AttrNames>
+        <Item Value="GlobalName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ViewObjReembolso1Iterator" id="EmailAddress">
+      <AttrNames>
+        <Item Value="EmailAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ViewObjReembolso1Iterator" id="Estatus">
+      <AttrNames>
+        <Item Value="Estatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="SolPasajeroId">
+      <AttrNames>
+        <Item Value="SolPasajeroId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="SolicitudId">
+      <AttrNames>
+        <Item Value="SolicitudId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="PersonId">
+      <AttrNames>
+        <Item Value="PersonId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator"
+                     id="NombreBeneficiario">
+      <AttrNames>
+        <Item Value="NombreBeneficiario"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator"
+                     id="ApellidoBeneficiario">
+      <AttrNames>
+        <Item Value="ApellidoBeneficiario"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="Transferido">
+      <AttrNames>
+        <Item Value="Transferido"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="ReqAutorizacion">
+      <AttrNames>
+        <Item Value="ReqAutorizacion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator"
+                     id="NombreTransferido">
+      <AttrNames>
+        <Item Value="NombreTransferido"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator"
+                     id="ApellidoTransferido">
+      <AttrNames>
+        <Item Value="ApellidoTransferido"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator"
+                     id="NacionalidadPasajero">
+      <AttrNames>
+        <Item Value="NacionalidadPasajero"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="Parentezco">
+      <AttrNames>
+        <Item Value="Parentezco"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="TipoPasajero">
+      <AttrNames>
+        <Item Value="TipoPasajero"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="TktEmitido">
+      <AttrNames>
+        <Item Value="TktEmitido"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="Estatus1">
+      <AttrNames>
+        <Item Value="Estatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="Pnr">
+      <AttrNames>
+        <Item Value="Pnr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="Costo">
+      <AttrNames>
+        <Item Value="Costo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="TranferPersonId">
+      <AttrNames>
+        <Item Value="TranferPersonId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="Intercambio">
+      <AttrNames>
+        <Item Value="Intercambio"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator"
+                     id="NombreIntercambio">
+      <AttrNames>
+        <Item Value="NombreIntercambio"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator"
+                     id="ApellidoIntercambio">
+      <AttrNames>
+        <Item Value="ApellidoIntercambio"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="InterPersonId">
+      <AttrNames>
+        <Item Value="InterPersonId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="GradoTrans">
+      <AttrNames>
+        <Item Value="GradoTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="CreatedBy">
+      <AttrNames>
+        <Item Value="CreatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PnrsXPersonID1Iterator" id="LastUpdateDate">
+      <AttrNames>
+        <Item Value="LastUpdateDate"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="PasajerosPorPNR1Iterator" id="PasajerosPorPNR1">
+      <nodeDefinition DefName="oracle.aeromx.com.pyd.reembolso.vo.PasajerosPorPNR"
+                      Name="PasajerosPorPNR10">
+        <AttrNames>
+          <Item Value="SolicitudId"/>
+          <Item Value="TktEmitido"/>
+          <Item Value="TipoPasajero"/>
+          <Item Value="Nombre"/>
+          <Item Value="Costo"/>
+          <Item Value="Seleccionar"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DetalleItinerario2Iterator" id="DetalleItinerario2">
+      <nodeDefinition DefName="oracle.aeromx.com.pyd.reembolso.vo.DetalleItinerario"
+                      Name="DetalleItinerario20">
+        <AttrNames>
+          <Item Value="SolRutaId"/>
+          <Item Value="SolicitudId"/>
+          <Item Value="Orden"/>
+          <Item Value="Origen"/>
+          <Item Value="Destino"/>
+          <Item Value="Fecha"/>
+          <Item Value="ClaveRuta"/>
+          <Item Value="TipoRuta"/>
+          <Item Value="LineaAerea"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdateLogin"/>
+          <Item Value="ObjectVersionNumber"/>
+          <Item Value="AttributeCategory"/>
+          <Item Value="Attribute1"/>
+          <Item Value="Attribute2"/>
+          <Item Value="Attribute3"/>
+          <Item Value="Attribute4"/>
+          <Item Value="Attribute5"/>
+          <Item Value="Attribute6"/>
+          <Item Value="Attribute7"/>
+          <Item Value="Attribute8"/>
+          <Item Value="Attribute9"/>
+          <Item Value="Attribute10"/>
+          <Item Value="Attribute11"/>
+          <Item Value="Attribute12"/>
+          <Item Value="Attribute13"/>
+          <Item Value="Attribute14"/>
+          <Item Value="Attribute15"/>
+          <Item Value="SegStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

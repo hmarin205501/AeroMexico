@@ -12,6 +12,8 @@
     <Attr Name="_NamedConnection" Value="Conn_MS_aeromex"/>
     <Attr Name="_appModuleNames0"
       Value="oracle.aeromx.com.pyd.lista.am.AMLista"/>
+    <Attr Name="_appModuleNames1"
+      Value="oracle.aeromx.com.pyd.reembolso.am.AMReembolso"/>
   </DesignTime>
   <Containee
     Name="am"
@@ -27,6 +29,23 @@
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="am"
+    PackageName="oracle.aeromx.com.pyd.reembolso.am"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vo"
+    PackageName="oracle.aeromx.com.pyd.reembolso.vo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+      <Attr Name="_VL" Value="true"/>
     </DesignTime>
   </Containee>
 </JboProject>

@@ -4,19 +4,19 @@
       <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
       <RefAddresses>
          <StringRefAddr addrType="sid">
-            <Contents>VIS</Contents>
+            <Contents>DAEMXI</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="subtype">
             <Contents>oraJDBC</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="port">
-            <Contents>1521</Contents>
+            <Contents>10710</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="hostname">
-            <Contents>187.162.103.177</Contents>
+            <Contents>vmohsaemx001.oracleoutsourcing.com</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="user">
-            <Contents>aeromex</Contents>
+            <Contents>apps</Contents>
          </StringRefAddr>
          <SecureRefAddr addrType="password"/>
          <StringRefAddr addrType="DeployPassword">

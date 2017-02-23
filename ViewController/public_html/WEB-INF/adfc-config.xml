@@ -11,4 +11,9 @@
     <managed-bean-scope id="__7">backingBean</managed-bean-scope>
     <!--oracle-jdev-comment:managed-bean-jsp-link:1aeromx/lista/DetallesLista.jspx-->
   </managed-bean>
+  <managed-bean id="__9">
+    <managed-bean-name id="__12">ReembolsoGeneral</managed-bean-name>
+    <managed-bean-class id="__10">Reembolso</managed-bean-class>
+    <managed-bean-scope id="__11">request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

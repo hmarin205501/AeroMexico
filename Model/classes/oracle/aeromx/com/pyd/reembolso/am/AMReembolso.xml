@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AMReembolso"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="oracle.aeromx.com.pyd.reembolso.am.AMReembolso_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="ViewObjReembolso1"
+    ViewObjectName="oracle.aeromx.com.pyd.reembolso.vo.DatosPersonales"/>
+  <ViewUsage
+    Name="DetalleItinerario1"
+    ViewObjectName="oracle.aeromx.com.pyd.reembolso.vo.DetalleItinerario"/>
+  <ViewUsage
+    Name="PasajerosPorPNR1"
+    ViewObjectName="oracle.aeromx.com.pyd.reembolso.vo.PasajerosPorPNR"/>
+  <ViewUsage
+    Name="DetalleItinerario2"
+    ViewObjectName="oracle.aeromx.com.pyd.reembolso.vo.DetalleItinerario"/>
+  <ViewLinkUsage
+    Name="VLDetalleItinerario1"
+    ViewLinkObjectName="oracle.aeromx.com.pyd.reembolso.vo.VLDetalleItinerario"
+    SrcViewUsageName="oracle.aeromx.com.pyd.reembolso.am.AMReembolso.PasajerosPorPNR1"
+    DstViewUsageName="oracle.aeromx.com.pyd.reembolso.am.AMReembolso.DetalleItinerario2"
+    Reversed="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.ms.demo.model.ModelBundle"/>
+  </ResourceBundle>
+</AppModule>

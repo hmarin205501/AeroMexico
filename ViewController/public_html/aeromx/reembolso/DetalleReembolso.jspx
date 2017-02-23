@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dynamic="http://xmlns.oracle.com/dynamic/adf/faces">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelSplitter orientation="vertical" splitterPosition="63" id="ps1">
+          <f:facet name="first">
+            <af:image source="/Images/headerBg.jpg" id="i1"/>
+          </f:facet>
+          <f:facet name="second">
+            <af:panelGroupLayout layout="scroll"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pgl2" halign="center">
+              <af:outputText value="#{CurrentDate.date}" id="ot1"
+                             inlineStyle="font-size:medium; text-align:right; font-weight:bolder;"/>
+              <af:separator id="s2"/>
+              <table cellspacing="2" cellpadding="3" border="0" width="30%"
+                     align="center">
+                <tr>
+                  <td width="50%">
+                    <af:outputLabel value="Nombre: " id="ol1"
+                                    inlineStyle="font-weight:bolder;"/><af:outputText value="#{bindings.GlobalName.inputValue}"
+                                                                                      id="ot2"/>
+                  </td>
+                  <td width="50%">
+                    <af:outputLabel value="Telefono: " id="ol3"
+                                    inlineStyle="font-weight:bolder;"/>
+                  </td>
+                </tr><tr>
+                  <td width="50%">
+                    <af:outputLabel value="Correo: " id="ol2"
+                                    inlineStyle="font-weight:bolder;"/><af:outputText value="#{bindings.EmailAddress.inputValue}"
+                                                                                      id="ot3"/>
+                  </td>
+                  <td width="50%">
+                    <af:outputLabel value="Estatus: " id="ol4"
+                                    inlineStyle="font-weight:bolder;"/><af:outputText value="#{bindings.Estatus.inputValue}"
+                                                                                      id="ot4"/>
+                  </td>
+                </tr>
+              </table>
+              <af:separator id="s1"/>
+              <af:table id="md1" rows="#{bindings.PasajerosPorPNR1.rangeSize}"
+                        fetchSize="#{bindings.PasajerosPorPNR1.rangeSize}"
+                        emptyText="#{bindings.PasajerosPorPNR1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        var="row"
+                        value="#{bindings.PasajerosPorPNR1.collectionModel}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.PasajerosPorPNR1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.PasajerosPorPNR1.collectionModel.makeCurrent}"
+                        rowSelection="single" width="700"
+                        inlineStyle="height:196px;">
+                <af:column headerText="#{bindings.PasajerosPorPNR1.hints.SolicitudId.label}"
+                           sortProperty="SolicitudId" sortable="false" id="c25">
+                  <af:outputText value="#{row.SolicitudId}" id="ot13">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PasajerosPorPNR1.hints.SolicitudId.format}"/>
+                  </af:outputText>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.PasajerosPorPNR1.hints.TktEmitido.label}"
+                           sortProperty="TktEmitido" sortable="false" id="c34">
+                  <af:outputText value="#{row.TktEmitido}" id="ot36"/>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.PasajerosPorPNR1.hints.TipoPasajero.label}"
+                           sortProperty="TipoPasajero" sortable="false"
+                           id="c28">
+                  <af:outputText value="#{row.TipoPasajero}" id="ot24"/>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.PasajerosPorPNR1.hints.Nombre.label}"
+                           sortProperty="Nombre" sortable="false" id="c4">
+                  <af:outputText value="#{row.Nombre}" id="ot9"/>
+                </af:column>
+                <af:column id="c2" headerText="Costo">
+                  <af:outputText value="#{row.Costo}" id="ot5">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PasajerosPorPNR1.hints.Costo.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column id="c1" headerText="Seleccionar">
+                  <af:selectBooleanCheckbox value="#{row.bindings.Seleccionar.inputValue}"
+                                            label="#{row.bindings.Seleccionar.label}"
+                                            shortDesc="#{bindings.PasajerosPorPNR1.hints.Seleccionar.tooltip}"
+                                            id="sbc1"/>
+                </af:column>
+              </af:table>
+              <af:separator id="s3"/>
+              <af:table partialTriggers="::md1"
+                        rows="#{bindings.DetalleItinerario2.rangeSize}"
+                        fetchSize="#{bindings.DetalleItinerario2.rangeSize}"
+                        emptyText="#{bindings.DetalleItinerario2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        var="row"
+                        value="#{bindings.DetalleItinerario2.collectionModel}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.DetalleItinerario2.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.DetalleItinerario2.collectionModel.makeCurrent}"
+                        rowSelection="single" id="t1"
+                        inlineStyle="height:107px;" width="1200">
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.SolRutaId.label}"
+                           sortProperty="SolRutaId" sortable="false" id="c24">
+                  <af:outputText value="#{row.SolRutaId}" id="ot33">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DetalleItinerario2.hints.SolRutaId.format}"/>
+                  </af:outputText>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.SolicitudId.label}"
+                           sortProperty="SolicitudId" sortable="false" id="c14">
+                  <af:outputText value="#{row.SolicitudId}" id="ot6">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DetalleItinerario2.hints.SolicitudId.format}"/>
+                  </af:outputText>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.Orden.label}"
+                           sortProperty="Orden" sortable="false" id="c30">
+                  <af:outputText value="#{row.Orden}" id="ot25">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DetalleItinerario2.hints.Orden.format}"/>
+                  </af:outputText>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.Origen.label}"
+                           sortProperty="Origen" sortable="false" id="c33">
+                  <af:outputText value="#{row.Origen}" id="ot8"/>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.Destino.label}"
+                           sortProperty="Destino" sortable="false" id="c29">
+                  <af:outputText value="#{row.Destino}" id="ot31"/>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.Fecha.label}"
+                           sortProperty="Fecha" sortable="false" id="c10">
+                  <af:outputText value="#{row.Fecha}" id="ot34">
+                    <af:convertDateTime pattern="#{bindings.DetalleItinerario2.hints.Fecha.format}"/>
+                  </af:outputText>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.ClaveRuta.label}"
+                           sortProperty="ClaveRuta" sortable="false" id="c18">
+                  <af:outputText value="#{row.ClaveRuta}" id="ot14"/>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.TipoRuta.label}"
+                           sortProperty="TipoRuta" sortable="false" id="c12">
+                  <af:outputText value="#{row.TipoRuta}" id="ot29"/>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.LineaAerea.label}"
+                           sortProperty="LineaAerea" sortable="false" id="c17">
+                  <af:outputText value="#{row.LineaAerea}" id="ot10"/>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.CreatedBy.label}"
+                           sortProperty="CreatedBy" sortable="false" id="c9">
+                  <af:outputText value="#{row.CreatedBy}" id="ot21">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DetalleItinerario2.hints.CreatedBy.format}"/>
+                  </af:outputText>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.CreationDate.label}"
+                           sortProperty="CreationDate" sortable="false"
+                           id="c20">
+                  <af:outputText value="#{row.CreationDate}" id="ot16">
+                    <af:convertDateTime pattern="#{bindings.DetalleItinerario2.hints.CreationDate.format}"/>
+                  </af:outputText>
+                </af:column>
+              </af:table>
+              <af:separator id="s4"/>
+              <af:commandButton text="Reembolsar" id="cb1"
+                                actionListener="#{ReembolsoGeneral.calcularReembolsoGeneral}"/>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelSplitter>
+        <af:popup id="p1">
+          <af:panelWindow id="pw1">
+            <af:panelFormLayout id="pfl1">
+              <af:inputText value="#{bindings.SolPasajeroId.inputValue}"
+                            label="#{bindings.SolPasajeroId.hints.label}"
+                            required="#{bindings.SolPasajeroId.hints.mandatory}"
+                            columns="#{bindings.SolPasajeroId.hints.displayWidth}"
+                            maximumLength="#{bindings.SolPasajeroId.hints.precision}"
+                            shortDesc="#{bindings.SolPasajeroId.hints.tooltip}"
+                            id="it37">
+                <f:validator binding="#{bindings.SolPasajeroId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SolPasajeroId.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.SolicitudId.inputValue}"
+                            label="#{bindings.SolicitudId.hints.label}"
+                            required="#{bindings.SolicitudId.hints.mandatory}"
+                            columns="#{bindings.SolicitudId.hints.displayWidth}"
+                            maximumLength="#{bindings.SolicitudId.hints.precision}"
+                            shortDesc="#{bindings.SolicitudId.hints.tooltip}"
+                            id="it11">
+                <f:validator binding="#{bindings.SolicitudId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SolicitudId.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.PersonId.inputValue}"
+                            label="#{bindings.PersonId.hints.label}"
+                            required="#{bindings.PersonId.hints.mandatory}"
+                            columns="#{bindings.PersonId.hints.displayWidth}"
+                            maximumLength="#{bindings.PersonId.hints.precision}"
+                            shortDesc="#{bindings.PersonId.hints.tooltip}"
+                            id="it51">
+                <f:validator binding="#{bindings.PersonId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PersonId.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.NombreBeneficiario.inputValue}"
+                            label="#{bindings.NombreBeneficiario.hints.label}"
+                            required="#{bindings.NombreBeneficiario.hints.mandatory}"
+                            columns="#{bindings.NombreBeneficiario.hints.displayWidth}"
+                            maximumLength="#{bindings.NombreBeneficiario.hints.precision}"
+                            shortDesc="#{bindings.NombreBeneficiario.hints.tooltip}"
+                            id="it44">
+                <f:validator binding="#{bindings.NombreBeneficiario.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ApellidoBeneficiario.inputValue}"
+                            label="#{bindings.ApellidoBeneficiario.hints.label}"
+                            required="#{bindings.ApellidoBeneficiario.hints.mandatory}"
+                            columns="#{bindings.ApellidoBeneficiario.hints.displayWidth}"
+                            maximumLength="#{bindings.ApellidoBeneficiario.hints.precision}"
+                            shortDesc="#{bindings.ApellidoBeneficiario.hints.tooltip}"
+                            id="it31">
+                <f:validator binding="#{bindings.ApellidoBeneficiario.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Transferido.inputValue}"
+                            label="#{bindings.Transferido.hints.label}"
+                            required="#{bindings.Transferido.hints.mandatory}"
+                            columns="#{bindings.Transferido.hints.displayWidth}"
+                            maximumLength="#{bindings.Transferido.hints.precision}"
+                            shortDesc="#{bindings.Transferido.hints.tooltip}"
+                            id="it29">
+                <f:validator binding="#{bindings.Transferido.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ReqAutorizacion.inputValue}"
+                            label="#{bindings.ReqAutorizacion.hints.label}"
+                            required="#{bindings.ReqAutorizacion.hints.mandatory}"
+                            columns="#{bindings.ReqAutorizacion.hints.displayWidth}"
+                            maximumLength="#{bindings.ReqAutorizacion.hints.precision}"
+                            shortDesc="#{bindings.ReqAutorizacion.hints.tooltip}"
+                            id="it24">
+                <f:validator binding="#{bindings.ReqAutorizacion.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.NombreTransferido.inputValue}"
+                            label="#{bindings.NombreTransferido.hints.label}"
+                            required="#{bindings.NombreTransferido.hints.mandatory}"
+                            columns="#{bindings.NombreTransferido.hints.displayWidth}"
+                            maximumLength="#{bindings.NombreTransferido.hints.precision}"
+                            shortDesc="#{bindings.NombreTransferido.hints.tooltip}"
+                            id="it42">
+                <f:validator binding="#{bindings.NombreTransferido.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ApellidoTransferido.inputValue}"
+                            label="#{bindings.ApellidoTransferido.hints.label}"
+                            required="#{bindings.ApellidoTransferido.hints.mandatory}"
+                            columns="#{bindings.ApellidoTransferido.hints.displayWidth}"
+                            maximumLength="#{bindings.ApellidoTransferido.hints.precision}"
+                            shortDesc="#{bindings.ApellidoTransferido.hints.tooltip}"
+                            id="it21">
+                <f:validator binding="#{bindings.ApellidoTransferido.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.NacionalidadPasajero.inputValue}"
+                            label="#{bindings.NacionalidadPasajero.hints.label}"
+                            required="#{bindings.NacionalidadPasajero.hints.mandatory}"
+                            columns="#{bindings.NacionalidadPasajero.hints.displayWidth}"
+                            maximumLength="#{bindings.NacionalidadPasajero.hints.precision}"
+                            shortDesc="#{bindings.NacionalidadPasajero.hints.tooltip}"
+                            id="it36">
+                <f:validator binding="#{bindings.NacionalidadPasajero.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Parentezco.inputValue}"
+                            label="#{bindings.Parentezco.hints.label}"
+                            required="#{bindings.Parentezco.hints.mandatory}"
+                            columns="#{bindings.Parentezco.hints.displayWidth}"
+                            maximumLength="#{bindings.Parentezco.hints.precision}"
+                            shortDesc="#{bindings.Parentezco.hints.tooltip}"
+                            id="it27">
+                <f:validator binding="#{bindings.Parentezco.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.TipoPasajero.inputValue}"
+                            label="#{bindings.TipoPasajero.hints.label}"
+                            required="#{bindings.TipoPasajero.hints.mandatory}"
+                            columns="#{bindings.TipoPasajero.hints.displayWidth}"
+                            maximumLength="#{bindings.TipoPasajero.hints.precision}"
+                            shortDesc="#{bindings.TipoPasajero.hints.tooltip}"
+                            id="it47">
+                <f:validator binding="#{bindings.TipoPasajero.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.TktEmitido.inputValue}"
+                            label="#{bindings.TktEmitido.hints.label}"
+                            required="#{bindings.TktEmitido.hints.mandatory}"
+                            columns="#{bindings.TktEmitido.hints.displayWidth}"
+                            maximumLength="#{bindings.TktEmitido.hints.precision}"
+                            shortDesc="#{bindings.TktEmitido.hints.tooltip}"
+                            id="it49">
+                <f:validator binding="#{bindings.TktEmitido.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Estatus1.inputValue}"
+                            label="#{bindings.Estatus1.hints.label}"
+                            required="#{bindings.Estatus1.hints.mandatory}"
+                            columns="#{bindings.Estatus1.hints.displayWidth}"
+                            maximumLength="#{bindings.Estatus1.hints.precision}"
+                            shortDesc="#{bindings.Estatus1.hints.tooltip}"
+                            id="it48">
+                <f:validator binding="#{bindings.Estatus1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Pnr.inputValue}"
+                            label="#{bindings.Pnr.hints.label}"
+                            required="#{bindings.Pnr.hints.mandatory}"
+                            columns="#{bindings.Pnr.hints.displayWidth}"
+                            maximumLength="#{bindings.Pnr.hints.precision}"
+                            shortDesc="#{bindings.Pnr.hints.tooltip}" id="it28">
+                <f:validator binding="#{bindings.Pnr.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Costo.inputValue}"
+                            label="#{bindings.Costo.hints.label}"
+                            required="#{bindings.Costo.hints.mandatory}"
+                            columns="#{bindings.Costo.hints.displayWidth}"
+                            maximumLength="#{bindings.Costo.hints.precision}"
+                            shortDesc="#{bindings.Costo.hints.tooltip}"
+                            id="it34">
+                <f:validator binding="#{bindings.Costo.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.Costo.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.TranferPersonId.inputValue}"
+                            label="#{bindings.TranferPersonId.hints.label}"
+                            required="#{bindings.TranferPersonId.hints.mandatory}"
+                            columns="#{bindings.TranferPersonId.hints.displayWidth}"
+                            maximumLength="#{bindings.TranferPersonId.hints.precision}"
+                            shortDesc="#{bindings.TranferPersonId.hints.tooltip}"
+                            id="it32">
+                <f:validator binding="#{bindings.TranferPersonId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.TranferPersonId.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Intercambio.inputValue}"
+                            label="#{bindings.Intercambio.hints.label}"
+                            required="#{bindings.Intercambio.hints.mandatory}"
+                            columns="#{bindings.Intercambio.hints.displayWidth}"
+                            maximumLength="#{bindings.Intercambio.hints.precision}"
+                            shortDesc="#{bindings.Intercambio.hints.tooltip}"
+                            id="it22">
+                <f:validator binding="#{bindings.Intercambio.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.NombreIntercambio.inputValue}"
+                            label="#{bindings.NombreIntercambio.hints.label}"
+                            required="#{bindings.NombreIntercambio.hints.mandatory}"
+                            columns="#{bindings.NombreIntercambio.hints.displayWidth}"
+                            maximumLength="#{bindings.NombreIntercambio.hints.precision}"
+                            shortDesc="#{bindings.NombreIntercambio.hints.tooltip}"
+                            id="it13">
+                <f:validator binding="#{bindings.NombreIntercambio.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.ApellidoIntercambio.inputValue}"
+                            label="#{bindings.ApellidoIntercambio.hints.label}"
+                            required="#{bindings.ApellidoIntercambio.hints.mandatory}"
+                            columns="#{bindings.ApellidoIntercambio.hints.displayWidth}"
+                            maximumLength="#{bindings.ApellidoIntercambio.hints.precision}"
+                            shortDesc="#{bindings.ApellidoIntercambio.hints.tooltip}"
+                            id="it15">
+                <f:validator binding="#{bindings.ApellidoIntercambio.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.InterPersonId.inputValue}"
+                            label="#{bindings.InterPersonId.hints.label}"
+                            required="#{bindings.InterPersonId.hints.mandatory}"
+                            columns="#{bindings.InterPersonId.hints.displayWidth}"
+                            maximumLength="#{bindings.InterPersonId.hints.precision}"
+                            shortDesc="#{bindings.InterPersonId.hints.tooltip}"
+                            id="it19">
+                <f:validator binding="#{bindings.InterPersonId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.InterPersonId.format}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.GradoTrans.inputValue}"
+                            label="#{bindings.GradoTrans.hints.label}"
+                            required="#{bindings.GradoTrans.hints.mandatory}"
+                            columns="#{bindings.GradoTrans.hints.displayWidth}"
+                            maximumLength="#{bindings.GradoTrans.hints.precision}"
+                            shortDesc="#{bindings.GradoTrans.hints.tooltip}"
+                            id="it39">
+                <f:validator binding="#{bindings.GradoTrans.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.CreatedBy.inputValue}"
+                            label="#{bindings.CreatedBy.hints.label}"
+                            required="#{bindings.CreatedBy.hints.mandatory}"
+                            columns="#{bindings.CreatedBy.hints.displayWidth}"
+                            maximumLength="#{bindings.CreatedBy.hints.precision}"
+                            shortDesc="#{bindings.CreatedBy.hints.tooltip}"
+                            id="it35">
+                <f:validator binding="#{bindings.CreatedBy.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.CreatedBy.format}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.CreationDate.inputValue}"
+                            label="#{bindings.CreationDate.hints.label}"
+                            required="#{bindings.CreationDate.hints.mandatory}"
+                            shortDesc="#{bindings.CreationDate.hints.tooltip}"
+                            id="id2">
+                <f:validator binding="#{bindings.CreationDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.CreationDate.format}"/>
+              </af:inputDate>
+              <af:inputText value="#{bindings.LastUpdatedBy.inputValue}"
+                            label="#{bindings.LastUpdatedBy.hints.label}"
+                            required="#{bindings.LastUpdatedBy.hints.mandatory}"
+                            columns="#{bindings.LastUpdatedBy.hints.displayWidth}"
+                            maximumLength="#{bindings.LastUpdatedBy.hints.precision}"
+                            shortDesc="#{bindings.LastUpdatedBy.hints.tooltip}"
+                            id="it26">
+                <f:validator binding="#{bindings.LastUpdatedBy.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.LastUpdatedBy.format}"/>
+              </af:inputText>
+              <af:inputDate value="#{bindings.LastUpdateDate.inputValue}"
+                            label="#{bindings.LastUpdateDate.hints.label}"
+                            required="#{bindings.LastUpdateDate.hints.mandatory}"
+                            shortDesc="#{bindings.LastUpdateDate.hints.tooltip}"
+                            id="id1">
+                <f:validator binding="#{bindings.LastUpdateDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.LastUpdateDate.format}"/>
+              </af:inputDate>
+            </af:panelFormLayout>
+          </af:panelWindow>
+        </af:popup>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
