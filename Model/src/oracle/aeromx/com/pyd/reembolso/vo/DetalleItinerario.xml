@@ -513,6 +513,16 @@
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Costo"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC"
+    DefaultValue="400"/>
   <ViewLinkAccessor
     Name="PasajerosPorPNR"
     ViewLink="oracle.aeromx.com.pyd.reembolso.vo.VLDetalleItinerario"

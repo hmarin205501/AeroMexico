@@ -82,6 +82,7 @@
           <Item Value="Attribute14"/>
           <Item Value="Attribute15"/>
           <Item Value="SegStatus"/>
+          <Item Value="Costo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
