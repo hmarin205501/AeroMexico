@@ -2,17 +2,34 @@
 <Application xmlns="http://xmlns.oracle.com/adfm/application"
              version="11.1.1.62.29" id="DataBindings" SeparateXMLFiles="false"
              Package="com.ms.demo.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
   <pageMap>
     <page path="/aeromx/lista/DetallesLista.jspx"
           usageId="com_ms_demo_view_DetallesListaPageDef"/>
     <page path="/aeromx/reembolso/DetalleReembolso.jspx"
           usageId="com_ms_demo_view_DetalleReembolsoPageDef"/>
+    <page path="/aeromx/template/template.jspx"
+          usageId="com_ms_demo_view_templatePageDef"/>
+    <page path="/aeromx/template/templateAeromx.jspx"
+          usageId="com_ms_demo_view_templateAeromxPageDef"/>
+    <page path="/aeromx/reembolso/reembolsoDetalle.jspx"
+          usageId="com_ms_demo_view_reembolsoDetallePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_ms_demo_view_DetallesListaPageDef"
           path="aeromx.lista.DetallesListaPageDef"/>
     <page id="com_ms_demo_view_DetalleReembolsoPageDef"
           path="aeromx.reembolso.DetalleReembolsoPageDef"/>
+    <page id="com_ms_demo_view_templatePageDef"
+          path="aeromx.template.templatePageDef"/>
+    <page id="com_ms_demo_view_templateAeromxPageDef"
+          path="aeromx.template.templateAeromxPageDef"/>
+    <page id="com_ms_demo_view_reembolsoDetallePageDef"
+          path="aeromx.reembolso.reembolsoDetallePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AMListaDataControl"

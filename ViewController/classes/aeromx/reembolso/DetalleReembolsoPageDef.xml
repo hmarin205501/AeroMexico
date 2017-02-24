@@ -16,6 +16,8 @@
     <iterator Binds="DetalleItinerario2" RangeSize="25"
               DataControl="AMReembolsoDataControl"
               id="DetalleItinerario2Iterator"/>
+    <page id="pageTemplateBinding"
+          path="aeromx.template.templateAeromxPageDef" Refresh="ifNeeded"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ViewObjReembolso1Iterator" id="GlobalName">
