@@ -6,13 +6,10 @@
           xmlns:dynamic="http://xmlns.oracle.com/dynamic/adf/faces">
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <f:view>
-    <af:document id="d1">
-      <af:messages id="m1"/>
-      <af:form id="f1">
+    <af:pageTemplate viewId="/aeromx/template/templateAeromx.jspx"
+                     value="#{bindings.pageTemplateBinding}" id="pt1">
+      <f:facet name="content">
         <af:panelSplitter orientation="vertical" splitterPosition="63" id="ps1">
-          <f:facet name="first">
-            <af:image source="/Images/headerBg.jpg" id="i1"/>
-          </f:facet>
           <f:facet name="second">
             <af:panelGroupLayout layout="scroll"
                                  xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
@@ -86,7 +83,9 @@
                   <af:selectBooleanCheckbox value="#{row.bindings.Seleccionar.inputValue}"
                                             label="#{row.bindings.Seleccionar.label}"
                                             shortDesc="#{bindings.PasajerosPorPNR1.hints.Seleccionar.tooltip}"
-                                            id="sbc1"/>
+                                            id="sbc1"
+                                            valueChangeListener="#{ReembolsoGeneral.ValidaCheck}"
+                                            autoSubmit="true"/>
                 </af:column>
               </af:table>
               <af:separator id="s3"/>
@@ -100,7 +99,7 @@
                         selectedRowKeys="#{bindings.DetalleItinerario2.collectionModel.selectedRow}"
                         selectionListener="#{bindings.DetalleItinerario2.collectionModel.makeCurrent}"
                         rowSelection="single" id="t1"
-                        inlineStyle="height:107px;" width="1200">
+                        inlineStyle="height:107px;" width="1000">
                 <af:column headerText="#{bindings.DetalleItinerario2.hints.SolRutaId.label}"
                            sortProperty="SolRutaId" sortable="false" id="c24">
                   <af:outputText value="#{row.SolRutaId}" id="ot33">
@@ -140,20 +139,9 @@
                            sortProperty="ClaveRuta" sortable="false" id="c18">
                   <af:outputText value="#{row.ClaveRuta}" id="ot14"/>
                 </af:column>
-                <af:column headerText="#{bindings.DetalleItinerario2.hints.TipoRuta.label}"
-                           sortProperty="TipoRuta" sortable="false" id="c12">
-                  <af:outputText value="#{row.TipoRuta}" id="ot29"/>
-                </af:column>
                 <af:column headerText="#{bindings.DetalleItinerario2.hints.LineaAerea.label}"
                            sortProperty="LineaAerea" sortable="false" id="c17">
                   <af:outputText value="#{row.LineaAerea}" id="ot10"/>
-                </af:column>
-                <af:column headerText="#{bindings.DetalleItinerario2.hints.CreatedBy.label}"
-                           sortProperty="CreatedBy" sortable="false" id="c9">
-                  <af:outputText value="#{row.CreatedBy}" id="ot21">
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.DetalleItinerario2.hints.CreatedBy.format}"/>
-                  </af:outputText>
                 </af:column>
                 <af:column headerText="#{bindings.DetalleItinerario2.hints.CreationDate.label}"
                            sortProperty="CreationDate" sortable="false"
@@ -162,27 +150,16 @@
                     <af:convertDateTime pattern="#{bindings.DetalleItinerario2.hints.CreationDate.format}"/>
                   </af:outputText>
                 </af:column>
+                <af:column id="c3"
+                           headerText="#{bindings.DetalleItinerario2.hints.Costo.label}">
+                  <af:outputText value="#{row.Costo}" id="ot7"/>
+                </af:column>
               </af:table>
               <af:separator id="s4"/>
-              <af:commandButton text="Reembolsar" id="cb1"
-                                actionListener="#{ReembolsoGeneral.calcularReembolsoGeneral}">
-                <af:clientAttribute name="atributoCliente"
-                                    value="#{ReembolsoGeneral.parametroReembolso}"/>
-                <af:showPopupBehavior popupId="p1" triggerType="action"/>
-              </af:commandButton>
             </af:panelGroupLayout>
           </f:facet>
         </af:panelSplitter>
-        <af:popup id="p1" launcherVar="source" contentDelivery="lazyUncached"
-                  eventContext="launcher">
-          <af:dialog id="d2">
-            <af:outputText value="#{viewScope.atributoCliente}" id="ot7"/>
-          </af:dialog>
-          <af:setPropertyListener from="#{source.attributes.atributoCliente}"
-                                  type="popupFetch"
-                                  to="#{viewScope.atributoCliente}"/>
-        </af:popup>
-      </af:form>
-    </af:document>
+      </f:facet>
+    </af:pageTemplate>
   </f:view>
 </jsp:root>
