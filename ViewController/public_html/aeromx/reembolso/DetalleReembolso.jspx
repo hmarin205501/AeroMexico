@@ -193,6 +193,159 @@
                 </af:panelGroupLayout>
               </f:facet>
             </af:panelSplitter>
+            <af:panelGroupLayout layout="scroll"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pgl2" halign="center">
+              <af:outputText value="#{CurrentDate.date}" id="ot1"
+                             inlineStyle="font-size:medium; text-align:right; font-weight:bolder;"/>
+              <af:separator id="s2"/>
+              <table cellspacing="2" cellpadding="3" border="0" width="30%"
+                     align="center">
+                <tr>
+                  <td width="50%">
+                    <af:outputLabel value="Nombre: " id="ol1"
+                                    inlineStyle="font-weight:bolder;"/><af:outputText value="#{bindings.GlobalName.inputValue}"
+                                                                                      id="ot2"/>
+                  </td>
+                  <td width="50%">
+                    <af:outputLabel value="Telefono: " id="ol3"
+                                    inlineStyle="font-weight:bolder;"/>
+                  </td>
+                </tr><tr>
+                  <td width="50%">
+                    <af:outputLabel value="Correo: " id="ol2"
+                                    inlineStyle="font-weight:bolder;"/><af:outputText value="#{bindings.EmailAddress.inputValue}"
+                                                                                      id="ot3"/>
+                  </td>
+                  <td width="50%">
+                    <af:outputLabel value="Estatus: " id="ol4"
+                                    inlineStyle="font-weight:bolder;"/><af:outputText value="#{bindings.Estatus.inputValue}"
+                                                                                      id="ot4"/>
+                  </td>
+                </tr>
+              </table>
+              <af:separator id="s1"/>
+              <af:table id="md1" rows="#{bindings.PasajerosPorPNR1.rangeSize}"
+                        fetchSize="#{bindings.PasajerosPorPNR1.rangeSize}"
+                        emptyText="#{bindings.PasajerosPorPNR1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        var="row"
+                        value="#{bindings.PasajerosPorPNR1.collectionModel}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.PasajerosPorPNR1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.PasajerosPorPNR1.collectionModel.makeCurrent}"
+                        rowSelection="single" width="700"
+                        inlineStyle="height:196px;">
+                <af:column headerText="#{bindings.PasajerosPorPNR1.hints.SolicitudId.label}"
+                           sortProperty="SolicitudId" sortable="false" id="c25">
+                  <af:outputText value="#{row.SolicitudId}" id="ot13">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PasajerosPorPNR1.hints.SolicitudId.format}"/>
+                  </af:outputText>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.PasajerosPorPNR1.hints.TktEmitido.label}"
+                           sortProperty="TktEmitido" sortable="false" id="c34">
+                  <af:outputText value="#{row.TktEmitido}" id="ot36"/>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.PasajerosPorPNR1.hints.TipoPasajero.label}"
+                           sortProperty="TipoPasajero" sortable="false"
+                           id="c28">
+                  <af:outputText value="#{row.TipoPasajero}" id="ot24"/>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.PasajerosPorPNR1.hints.Nombre.label}"
+                           sortProperty="Nombre" sortable="false" id="c4">
+                  <af:outputText value="#{row.Nombre}" id="ot9"/>
+                </af:column>
+                <af:column id="c2" headerText="Costo">
+                  <af:outputText value="#{row.Costo}" id="ot5">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PasajerosPorPNR1.hints.Costo.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column id="c1" headerText="Seleccionar">
+                  <af:selectBooleanCheckbox value="#{row.bindings.Seleccionar.inputValue}"
+                                            label="#{row.bindings.Seleccionar.label}"
+                                            shortDesc="#{bindings.PasajerosPorPNR1.hints.Seleccionar.tooltip}"
+                                            id="sbc1"
+                                            valueChangeListener="#{ReembolsoGeneral.ValidaCheck}"
+                                            autoSubmit="true"/>
+                </af:column>
+              </af:table>
+              <af:separator id="s3"/>
+              <af:table partialTriggers="::md1"
+                        rows="#{bindings.DetalleItinerario2.rangeSize}"
+                        fetchSize="#{bindings.DetalleItinerario2.rangeSize}"
+                        emptyText="#{bindings.DetalleItinerario2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        var="row"
+                        value="#{bindings.DetalleItinerario2.collectionModel}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.DetalleItinerario2.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.DetalleItinerario2.collectionModel.makeCurrent}"
+                        rowSelection="single" id="t1"
+                        inlineStyle="height:107px;" width="1000">
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.SolRutaId.label}"
+                           sortProperty="SolRutaId" sortable="false" id="c24">
+                  <af:outputText value="#{row.SolRutaId}" id="ot33">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DetalleItinerario2.hints.SolRutaId.format}"/>
+                  </af:outputText>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.SolicitudId.label}"
+                           sortProperty="SolicitudId" sortable="false" id="c14">
+                  <af:outputText value="#{row.SolicitudId}" id="ot6">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DetalleItinerario2.hints.SolicitudId.format}"/>
+                  </af:outputText>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.Orden.label}"
+                           sortProperty="Orden" sortable="false" id="c30">
+                  <af:outputText value="#{row.Orden}" id="ot25">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DetalleItinerario2.hints.Orden.format}"/>
+                  </af:outputText>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.Origen.label}"
+                           sortProperty="Origen" sortable="false" id="c33">
+                  <af:outputText value="#{row.Origen}" id="ot8"/>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.Destino.label}"
+                           sortProperty="Destino" sortable="false" id="c29">
+                  <af:outputText value="#{row.Destino}" id="ot31"/>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.Fecha.label}"
+                           sortProperty="Fecha" sortable="false" id="c10">
+                  <af:outputText value="#{row.Fecha}" id="ot34">
+                    <af:convertDateTime pattern="#{bindings.DetalleItinerario2.hints.Fecha.format}"/>
+                  </af:outputText>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.ClaveRuta.label}"
+                           sortProperty="ClaveRuta" sortable="false" id="c18">
+                  <af:outputText value="#{row.ClaveRuta}" id="ot14"/>
+                </af:column>
+                 
+                <af:column headerText="#{bindings.DetalleItinerario2.hints.LineaAerea.label}"
+                           sortProperty="LineaAerea" sortable="false" id="c17">
+                  <af:outputText value="#{row.LineaAerea}" id="ot10"/>
+                </af:column>
+                <af:column id="c3"
+                           headerText="#{bindings.DetalleItinerario2.hints.Costo.label}">
+                  <af:outputText value="#{row.Costo}" id="ot7"/>
+                </af:column>
+              </af:table>
+              <af:separator id="s4"/>
+              <af:commandButton text="Reembolsar" id="cb1">
+                <af:showPopupBehavior popupId="p1" triggerType="action"/>
+                
+              </af:commandButton>
+            </af:panelGroupLayout>
           </f:facet>
         </af:panelSplitter>
         <af:popup id="p1" launcherVar="source" contentDelivery="lazyUncached"
@@ -201,6 +354,7 @@
                      contentHeight="400">
             <af:outputFormatted value="&lt;b>#{ReembolsoGeneral.parametroReembolso}&lt;/b>"
                                 id="of1"/>
+            <af:outputFormatted value="&lt;b>#{ReembolsoGeneral.parametroReembolso}&lt;/b>" id="of1"/>
           </af:dialog>
           <af:setPropertyListener from="#{source.attributes.atributoCliente}"
                                   type="popupFetch"
