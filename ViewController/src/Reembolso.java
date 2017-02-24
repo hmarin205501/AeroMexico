@@ -11,6 +11,7 @@ import oracle.jbo.ViewObject;
 
 public class Reembolso {
     private String parametroReembolso;
+    private String parametroReembolsoRutas;
     
     public Reembolso() {
     }
@@ -76,5 +77,43 @@ public class Reembolso {
 
     public void ValidaCheck(ValueChangeEvent valueChangeEvent) {
        System.out.println("valueChangeEvent: " + valueChangeEvent.getNewValue());
+    }
+
+    public void setParametroReembolso(String parametroReembolso) {
+        this.parametroReembolso = parametroReembolso;
+    }
+
+    public void setParametroReembolsoRutas(String parametroReembolsoRutas) {
+        this.parametroReembolsoRutas = parametroReembolsoRutas;
+    }
+
+    public String getParametroReembolsoRutas() {
+        
+        DCBindingContainer bindings = this.getDCBindingsContainer();
+        DCIteratorBinding itorBinding = bindings.findIteratorBinding("DetalleItinerario2Iterator");
+        ViewObject vo = itorBinding.getViewObject();
+        Row[] selectRolesRows = vo.getFilteredRows("Seleccionar", true);
+        
+        int suma = 0;
+        String textoRutas = "";
+        System.out.println("Rutas seleccionadas: " +selectRolesRows.length);
+        for(Row row : selectRolesRows){
+            System.out.println("Orden " +row.getAttribute("Orden").toString());             
+            System.out.println("SolRutaId " + row.getAttribute("SolRutaId").toString());
+            System.out.println("Origen " + row.getAttribute("Origen").toString());
+            System.out.println("Precio " + row.getAttribute("Precio").toString());
+            //System.out.println("Costo " + row.getAttribute("Costo").toString());
+           
+            suma = suma +  Integer.parseInt(row.getAttribute("Precio").toString());
+            textoRutas = textoRutas + "<p>Ruta: " +  row.getAttribute("SolRutaId")  
+                                        + " Precio: " +  row.getAttribute("Precio") + "</p>";
+            
+            
+        }
+        System.out.println("Costo total:" + suma); 
+        parametroReembolsoRutas = textoRutas +  "<p>Costo total:" + suma + "</p>";
+
+        
+        return parametroReembolsoRutas;
     }
 }

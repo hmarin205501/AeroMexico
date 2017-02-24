@@ -9,6 +9,7 @@
         href="../../resource/css/menu/style_menu.css"/>
   <f:view>
     <af:document title="Title 1" id="d1">
+      <af:messages id="m1"/>
       <af:form id="f1">
         <af:panelSplitter id="ps1" orientation="vertical"
                           splitterPosition="129">
@@ -48,6 +49,9 @@
                   <af:outputText value="#{CurrentDate.date}" id="ot1"
                                  inlineStyle="font-size:medium; text-align:right; font-weight:bolder;"/>
                   <af:separator id="s2"/>
+                  <af:outputFormatted value="Datos del empleado"
+                                      id="of3"
+                                      inlineStyle="color:rgb(0,33,115); font-weight:bolder;"/>
                   <table cellspacing="2" cellpadding="3" border="0" width="30%"
                          align="center">
                     <tr>
@@ -74,6 +78,8 @@
                     </tr>
                   </table>
                   <af:separator id="s1"/>
+                  <h:outputFormat value="Tickets" id="of4"
+                                  style="color:rgb(0,33,115); font-weight:bolder;"/>
                   <af:table id="md1"
                             rows="#{bindings.PasajerosPorPNR1.rangeSize}"
                             fetchSize="#{bindings.PasajerosPorPNR1.rangeSize}"
@@ -83,9 +89,9 @@
                             rowBandingInterval="0"
                             selectedRowKeys="#{bindings.PasajerosPorPNR1.collectionModel.selectedRow}"
                             selectionListener="#{bindings.PasajerosPorPNR1.collectionModel.makeCurrent}"
-                            rowSelection="single" width="700"
-                            inlineStyle="height:196px;">
-                    <af:column headerText="#{bindings.PasajerosPorPNR1.hints.SolicitudId.label}"
+                            rowSelection="single" width="650"
+                            inlineStyle="height:100px;">
+                    <af:column headerText="Solicitud"
                                sortProperty="SolicitudId" sortable="false"
                                id="c25">
                       <af:outputText value="#{row.SolicitudId}" id="ot13">
@@ -93,21 +99,22 @@
                                           pattern="#{bindings.PasajerosPorPNR1.hints.SolicitudId.format}"/>
                       </af:outputText>
                     </af:column>
-                    <af:column headerText="#{bindings.PasajerosPorPNR1.hints.TktEmitido.label}"
+                    <af:column headerText="Ticket"
                                sortProperty="TktEmitido" sortable="false"
                                id="c34">
                       <af:outputText value="#{row.TktEmitido}" id="ot36"/>
                     </af:column>
-                    <af:column headerText="#{bindings.PasajerosPorPNR1.hints.TipoPasajero.label}"
+                    <af:column headerText="Pasajero"
                                sortProperty="TipoPasajero" sortable="false"
                                id="c28">
                       <af:outputText value="#{row.TipoPasajero}" id="ot24"/>
                     </af:column>
-                    <af:column headerText="#{bindings.PasajerosPorPNR1.hints.Nombre.label}"
+                    <af:column headerText="Nombre"
                                sortProperty="Nombre" sortable="false" id="c4">
                       <af:outputText value="#{row.Nombre}" id="ot9"/>
                     </af:column>
-                    <af:column id="c2" headerText="Costo">
+                    <af:column id="c2" headerText="Costo" sortProperty="Costo"
+                               sortable="false">
                       <af:outputText value="#{row.Costo}" id="ot5">
                         <af:convertNumber groupingUsed="false"
                                           pattern="#{bindings.PasajerosPorPNR1.hints.Costo.format}"/>
@@ -122,7 +129,12 @@
                                                 autoSubmit="true"/>
                     </af:column>
                   </af:table>
+                  <af:commandButton text="Reembolsar Ticket (s)" id="cb1">
+                    <af:showPopupBehavior popupId="p1" triggerType="action"/>
+                  </af:commandButton>
                   <af:separator id="s3"/>
+                  <af:outputFormatted value="Itinerario" id="of5"
+                                      inlineStyle="color:rgb(0,33,115); font-weight:bolder;"/>
                   <af:table partialTriggers="::md1"
                             rows="#{bindings.DetalleItinerario2.rangeSize}"
                             fetchSize="#{bindings.DetalleItinerario2.rangeSize}"
@@ -133,7 +145,7 @@
                             selectedRowKeys="#{bindings.DetalleItinerario2.collectionModel.selectedRow}"
                             selectionListener="#{bindings.DetalleItinerario2.collectionModel.makeCurrent}"
                             rowSelection="single" id="t1"
-                            inlineStyle="height:107px;" width="1000">
+                            inlineStyle="height:70px;" width="1050">
                     <af:column headerText="#{bindings.DetalleItinerario2.hints.SolRutaId.label}"
                                sortProperty="SolRutaId" sortable="false"
                                id="c24">
@@ -181,15 +193,25 @@
                                id="c17">
                       <af:outputText value="#{row.LineaAerea}" id="ot10"/>
                     </af:column>
-                    <af:column id="c3"
-                               headerText="#{bindings.DetalleItinerario2.hints.Costo.label}">
-                      <af:outputText value="#{row.Costo}" id="ot7"/>
+                    <af:column headerText="#{bindings.DetalleItinerario2.hints.Precio.label}"
+                               id="c3">
+                      <af:outputText value="#{row.Precio}" id="ot7">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DetalleItinerario2.hints.Precio.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.DetalleItinerario2.hints.Seleccionar.label}"
+                               id="c5">
+                      <af:selectBooleanCheckbox value="#{row.bindings.Seleccionar.inputValue}"
+                                                label="#{row.bindings.Seleccionar.label}"
+                                                shortDesc="#{bindings.DetalleItinerario2.hints.Seleccionar.tooltip}"
+                                                id="sbc2" autoSubmit="true"/>
                     </af:column>
                   </af:table>
-                  <af:separator id="s4"/>
-                  <af:commandButton text="Reembolsar" id="cb1">
-                    <af:showPopupBehavior popupId="p1" triggerType="action"/>
+                  <af:commandButton text="Reembolsar ruta (s)" id="cb2">
+                    <af:showPopupBehavior popupId="p2" triggerType="action"/>
                   </af:commandButton>
+                  <af:separator id="s4"/>
                 </af:panelGroupLayout>
               </f:facet>
             </af:panelSplitter>
@@ -199,13 +221,19 @@
       <af:popup id="p1" launcherVar="source" contentDelivery="lazyUncached"
                 eventContext="launcher">
         <af:dialog id="d2" title="Tickets a reembolsar" contentWidth="400"
-                   contentHeight="400">
+                   contentHeight="100">
           <af:outputFormatted value="&lt;b>#{ReembolsoGeneral.parametroReembolso}&lt;/b>"
                               id="of1"/>
         </af:dialog>
         <af:setPropertyListener from="#{source.attributes.atributoCliente}"
                                 type="popupFetch"
                                 to="#{viewScope.atributoCliente}"/>
+      </af:popup>
+      <af:popup id="p2">
+        <af:dialog id="d3" title="Rutas a reembolsar" contentWidth="400"
+                   contentHeight="100">
+          <af:outputFormatted value="&lt;b>#{ReembolsoGeneral.parametroReembolsoRutas}&lt;/b> " id="of2"/>
+        </af:dialog>
       </af:popup>
       <af:resource type="javascript">
         function openNav() {

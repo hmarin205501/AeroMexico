@@ -18,6 +18,10 @@
               id="DetalleItinerario2Iterator"/>
     <page id="pageTemplateBinding"
           path="aeromx.template.templateAeromxPageDef" Refresh="ifNeeded"/>
+    <taskFlow id="pydtaskflowmenu1"
+              taskFlowId="/WEB-INF/aeromx/taskflow/pyd-task-flow-menu.xml#pyd-task-flow-menu"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ViewObjReembolso1Iterator" id="GlobalName">
@@ -52,23 +56,13 @@
       <nodeDefinition DefName="oracle.aeromx.com.pyd.reembolso.vo.DetalleItinerario"
                       Name="DetalleItinerario20">
         <AttrNames>
-          <Item Value="SolRutaId"/>
-          <Item Value="SolicitudId"/>
-          <Item Value="Orden"/>
-          <Item Value="Origen"/>
-          <Item Value="Destino"/>
-          <Item Value="Fecha"/>
-          <Item Value="ClaveRuta"/>
-          <Item Value="TipoRuta"/>
-          <Item Value="LineaAerea"/>
-          <Item Value="CreatedBy"/>
-          <Item Value="CreationDate"/>
-          <Item Value="LastUpdatedBy"/>
-          <Item Value="LastUpdateDate"/>
-          <Item Value="LastUpdateLogin"/>
-          <Item Value="ObjectVersionNumber"/>
-          <Item Value="AttributeCategory"/>
           <Item Value="Attribute1"/>
+          <Item Value="Attribute10"/>
+          <Item Value="Attribute11"/>
+          <Item Value="Attribute12"/>
+          <Item Value="Attribute13"/>
+          <Item Value="Attribute14"/>
+          <Item Value="Attribute15"/>
           <Item Value="Attribute2"/>
           <Item Value="Attribute3"/>
           <Item Value="Attribute4"/>
@@ -77,14 +71,26 @@
           <Item Value="Attribute7"/>
           <Item Value="Attribute8"/>
           <Item Value="Attribute9"/>
-          <Item Value="Attribute10"/>
-          <Item Value="Attribute11"/>
-          <Item Value="Attribute12"/>
-          <Item Value="Attribute13"/>
-          <Item Value="Attribute14"/>
-          <Item Value="Attribute15"/>
-          <Item Value="SegStatus"/>
+          <Item Value="AttributeCategory"/>
+          <Item Value="ClaveRuta"/>
           <Item Value="Costo"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="Destino"/>
+          <Item Value="Fecha"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateLogin"/>
+          <Item Value="LineaAerea"/>
+          <Item Value="ObjectVersionNumber"/>
+          <Item Value="Orden"/>
+          <Item Value="Origen"/>
+          <Item Value="SegStatus"/>
+          <Item Value="Seleccionar"/>
+          <Item Value="SolicitudId"/>
+          <Item Value="SolRutaId"/>
+          <Item Value="TipoRuta"/>
+          <Item Value="Precio"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

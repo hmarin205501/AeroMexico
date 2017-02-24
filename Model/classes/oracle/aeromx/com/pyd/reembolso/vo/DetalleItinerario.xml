@@ -20,7 +20,7 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[SELECT * FROM XXPYD_SOL_CON_RUTAS]]>
+    <![CDATA[SELECT a.*,500 as PRECIO FROM XXPYD_SOL_CON_RUTAS a]]>
   </SQLQuery>
   <ViewAttribute
     Name="SolRutaId"
@@ -514,15 +514,46 @@
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
+    Name="Precio"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="PRECIO"
+    Expression="PRECIO"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Seleccionar"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
     Name="Costo"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
+    DefaultValue="200"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="NUMERIC"
-    DefaultValue="400"/>
+    SQLType="VARCHAR"/>
   <ViewLinkAccessor
     Name="PasajerosPorPNR"
     ViewLink="oracle.aeromx.com.pyd.reembolso.vo.VLDetalleItinerario"
