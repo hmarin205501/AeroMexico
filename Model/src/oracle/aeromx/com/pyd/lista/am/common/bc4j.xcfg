@@ -1,11 +1,13 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="oracle.aeromx.com.pyd.lista.am.AMLista">
-      <AppModuleConfig name="AMListaLocal" ApplicationName="oracle.aeromx.com.pyd.lista.am.AMLista" DeployPlatform="LOCAL" JDBCName="Conn_MS_aeromex" jbo.project="com.ms.demo.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+      <AppModuleConfig DeployPlatform="LOCAL" JDBCName="Conn_MS_aeromex" jbo.project="com.ms.demo.model.Model" name="AMListaLocal" ApplicationName="oracle.aeromx.com.pyd.lista.am.AMLista">
+         <Database jbo.locking.mode="optimistic"/>
          <Security AppModuleJndiName="oracle.aeromx.com.pyd.lista.am.AMLista"/>
       </AppModuleConfig>
-      <AppModuleConfig name="AMListaShared" ApplicationName="oracle.aeromx.com.pyd.lista.am.AMLista" DeployPlatform="LOCAL" JDBCName="Conn_MS_aeromex" jbo.project="com.ms.demo.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
-         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
+      <AppModuleConfig DeployPlatform="LOCAL" JDBCName="Conn_MS_aeromex" jbo.project="com.ms.demo.model.Model" name="AMListaShared" ApplicationName="oracle.aeromx.com.pyd.lista.am.AMLista">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
          <Security AppModuleJndiName="oracle.aeromx.com.pyd.lista.am.AMLista"/>
       </AppModuleConfig>
    </AppModuleConfigBag>
