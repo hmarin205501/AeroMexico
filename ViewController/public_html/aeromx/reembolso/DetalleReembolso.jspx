@@ -5,161 +5,217 @@
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:dynamic="http://xmlns.oracle.com/dynamic/adf/faces">
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <link type="text/css" rel="stylesheet"
+        href="../../resource/css/menu/style_menu.css"/>
   <f:view>
-    <af:pageTemplate viewId="/aeromx/template/templateAeromx.jspx"
-                     value="#{bindings.pageTemplateBinding}" id="pt1">
-      <f:facet name="content">
-        <af:panelSplitter orientation="vertical" splitterPosition="63" id="ps1">
+    <af:document title="Title 1" id="d1">
+      <af:form id="f1">
+        <af:panelSplitter id="ps1" orientation="vertical"
+                          splitterPosition="129">
+          <f:facet name="first">
+            <af:image source="../../resource/image/headerBg.jpg" id="i1"
+                      styleClass="AFStretchWidth" inlineStyle="height:100%;"/>
+          </f:facet>
           <f:facet name="second">
-            <af:panelGroupLayout layout="scroll"
-                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                                 id="pgl2" halign="center">
-              <af:outputText value="#{CurrentDate.date}" id="ot1"
-                             inlineStyle="font-size:medium; text-align:right; font-weight:bolder;"/>
-              <af:separator id="s2"/>
-              <table cellspacing="2" cellpadding="3" border="0" width="30%"
-                     align="center">
-                <tr>
-                  <td width="50%">
-                    <af:outputLabel value="Nombre: " id="ol1"
-                                    inlineStyle="font-weight:bolder;"/><af:outputText value="#{bindings.GlobalName.inputValue}"
-                                                                                      id="ot2"/>
-                  </td>
-                  <td width="50%">
-                    <af:outputLabel value="Telefono: " id="ol3"
-                                    inlineStyle="font-weight:bolder;"/>
-                  </td>
-                </tr><tr>
-                  <td width="50%">
-                    <af:outputLabel value="Correo: " id="ol2"
-                                    inlineStyle="font-weight:bolder;"/><af:outputText value="#{bindings.EmailAddress.inputValue}"
-                                                                                      id="ot3"/>
-                  </td>
-                  <td width="50%">
-                    <af:outputLabel value="Estatus: " id="ol4"
-                                    inlineStyle="font-weight:bolder;"/><af:outputText value="#{bindings.Estatus.inputValue}"
-                                                                                      id="ot4"/>
-                  </td>
-                </tr>
-              </table>
-              <af:separator id="s1"/>
-              <af:table id="md1" rows="#{bindings.PasajerosPorPNR1.rangeSize}"
-                        fetchSize="#{bindings.PasajerosPorPNR1.rangeSize}"
-                        emptyText="#{bindings.PasajerosPorPNR1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                        var="row"
-                        value="#{bindings.PasajerosPorPNR1.collectionModel}"
-                        rowBandingInterval="0"
-                        selectedRowKeys="#{bindings.PasajerosPorPNR1.collectionModel.selectedRow}"
-                        selectionListener="#{bindings.PasajerosPorPNR1.collectionModel.makeCurrent}"
-                        rowSelection="single" width="700"
-                        inlineStyle="height:196px;">
-                <af:column headerText="#{bindings.PasajerosPorPNR1.hints.SolicitudId.label}"
-                           sortProperty="SolicitudId" sortable="false" id="c25">
-                  <af:outputText value="#{row.SolicitudId}" id="ot13">
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.PasajerosPorPNR1.hints.SolicitudId.format}"/>
-                  </af:outputText>
-                </af:column>
-                <af:column headerText="#{bindings.PasajerosPorPNR1.hints.TktEmitido.label}"
-                           sortProperty="TktEmitido" sortable="false" id="c34">
-                  <af:outputText value="#{row.TktEmitido}" id="ot36"/>
-                </af:column>
-                <af:column headerText="#{bindings.PasajerosPorPNR1.hints.TipoPasajero.label}"
-                           sortProperty="TipoPasajero" sortable="false"
-                           id="c28">
-                  <af:outputText value="#{row.TipoPasajero}" id="ot24"/>
-                </af:column>
-                <af:column headerText="#{bindings.PasajerosPorPNR1.hints.Nombre.label}"
-                           sortProperty="Nombre" sortable="false" id="c4">
-                  <af:outputText value="#{row.Nombre}" id="ot9"/>
-                </af:column>
-                <af:column id="c2" headerText="Costo">
-                  <af:outputText value="#{row.Costo}" id="ot5">
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.PasajerosPorPNR1.hints.Costo.format}"/>
-                  </af:outputText>
-                </af:column>
-                <af:column id="c1" headerText="Seleccionar">
-                  <af:selectBooleanCheckbox value="#{row.bindings.Seleccionar.inputValue}"
-                                            label="#{row.bindings.Seleccionar.label}"
-                                            shortDesc="#{bindings.PasajerosPorPNR1.hints.Seleccionar.tooltip}"
-                                            id="sbc1"
-                                            valueChangeListener="#{ReembolsoGeneral.ValidaCheck}"
-                                            autoSubmit="true"/>
-                </af:column>
-              </af:table>
-              <af:separator id="s3"/>
-              <af:table partialTriggers="::md1"
-                        rows="#{bindings.DetalleItinerario2.rangeSize}"
-                        fetchSize="#{bindings.DetalleItinerario2.rangeSize}"
-                        emptyText="#{bindings.DetalleItinerario2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                        var="row"
-                        value="#{bindings.DetalleItinerario2.collectionModel}"
-                        rowBandingInterval="0"
-                        selectedRowKeys="#{bindings.DetalleItinerario2.collectionModel.selectedRow}"
-                        selectionListener="#{bindings.DetalleItinerario2.collectionModel.makeCurrent}"
-                        rowSelection="single" id="t1"
-                        inlineStyle="height:107px;" width="1000">
-                <af:column headerText="#{bindings.DetalleItinerario2.hints.SolRutaId.label}"
-                           sortProperty="SolRutaId" sortable="false" id="c24">
-                  <af:outputText value="#{row.SolRutaId}" id="ot33">
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.DetalleItinerario2.hints.SolRutaId.format}"/>
-                  </af:outputText>
-                </af:column>
-                <af:column headerText="#{bindings.DetalleItinerario2.hints.SolicitudId.label}"
-                           sortProperty="SolicitudId" sortable="false" id="c14">
-                  <af:outputText value="#{row.SolicitudId}" id="ot6">
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.DetalleItinerario2.hints.SolicitudId.format}"/>
-                  </af:outputText>
-                </af:column>
-                <af:column headerText="#{bindings.DetalleItinerario2.hints.Orden.label}"
-                           sortProperty="Orden" sortable="false" id="c30">
-                  <af:outputText value="#{row.Orden}" id="ot25">
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.DetalleItinerario2.hints.Orden.format}"/>
-                  </af:outputText>
-                </af:column>
-                <af:column headerText="#{bindings.DetalleItinerario2.hints.Origen.label}"
-                           sortProperty="Origen" sortable="false" id="c33">
-                  <af:outputText value="#{row.Origen}" id="ot8"/>
-                </af:column>
-                <af:column headerText="#{bindings.DetalleItinerario2.hints.Destino.label}"
-                           sortProperty="Destino" sortable="false" id="c29">
-                  <af:outputText value="#{row.Destino}" id="ot31"/>
-                </af:column>
-                <af:column headerText="#{bindings.DetalleItinerario2.hints.Fecha.label}"
-                           sortProperty="Fecha" sortable="false" id="c10">
-                  <af:outputText value="#{row.Fecha}" id="ot34">
-                    <af:convertDateTime pattern="#{bindings.DetalleItinerario2.hints.Fecha.format}"/>
-                  </af:outputText>
-                </af:column>
-                <af:column headerText="#{bindings.DetalleItinerario2.hints.ClaveRuta.label}"
-                           sortProperty="ClaveRuta" sortable="false" id="c18">
-                  <af:outputText value="#{row.ClaveRuta}" id="ot14"/>
-                </af:column>
-                <af:column headerText="#{bindings.DetalleItinerario2.hints.LineaAerea.label}"
-                           sortProperty="LineaAerea" sortable="false" id="c17">
-                  <af:outputText value="#{row.LineaAerea}" id="ot10"/>
-                </af:column>
-                <af:column headerText="#{bindings.DetalleItinerario2.hints.CreationDate.label}"
-                           sortProperty="CreationDate" sortable="false"
-                           id="c20">
-                  <af:outputText value="#{row.CreationDate}" id="ot16">
-                    <af:convertDateTime pattern="#{bindings.DetalleItinerario2.hints.CreationDate.format}"/>
-                  </af:outputText>
-                </af:column>
-                <af:column id="c3"
-                           headerText="#{bindings.DetalleItinerario2.hints.Costo.label}">
-                  <af:outputText value="#{row.Costo}" id="ot7"/>
-                </af:column>
-              </af:table>
-              <af:separator id="s4"/>
-            </af:panelGroupLayout>
+            <af:panelSplitter id="ps2" splitterPosition="194">
+              <f:facet name="first">
+                <af:panelGroupLayout id="mySidenav" styleClass="sidenav">
+                  <h:graphicImage url="/resource/image/cambio_asiento.png"
+                                  id="menu1" width="60" height="60"
+                                  styleClass="imgU">
+                    <a href="#">Cambio de Asiento</a>
+                  </h:graphicImage>
+                  <h:graphicImage url="/resource/image/cambio_fecha.png"
+                                  id="menu2" width="60" height="60"
+                                  styleClass="imgD">
+                    <a href="#">Cambio de Fecha</a>
+                  </h:graphicImage>
+                  <h:graphicImage url="/resource/image/lista_espera.png"
+                                  id="menu3" width="60" height="60"
+                                  styleClass="imgT">
+                    <a href="#">Lista de Espera</a>
+                  </h:graphicImage>
+                  <h:graphicImage url="/resource/image/reembolso.png" id="menu4"
+                                  width="60" height="60" styleClass="imgC">
+                    <a href="#">Reembolso</a>
+                  </h:graphicImage>
+                </af:panelGroupLayout>
+              </f:facet>
+              <f:facet name="second">
+                <af:panelGroupLayout layout="scroll"
+                                     xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                     id="pgl2" halign="center">
+                  <af:outputText value="#{CurrentDate.date}" id="ot1"
+                                 inlineStyle="font-size:medium; text-align:right; font-weight:bolder;"/>
+                  <af:separator id="s2"/>
+                  <table cellspacing="2" cellpadding="3" border="0" width="30%"
+                         align="center">
+                    <tr>
+                      <td width="50%">
+                        <af:outputLabel value="Nombre: " id="ol1"
+                                        inlineStyle="font-weight:bolder;"/><af:outputText value="#{bindings.GlobalName.inputValue}"
+                                                                                          id="ot2"/>
+                      </td>
+                      <td width="50%">
+                        <af:outputLabel value="Telefono: " id="ol3"
+                                        inlineStyle="font-weight:bolder;"/>
+                      </td>
+                    </tr><tr>
+                      <td width="50%">
+                        <af:outputLabel value="Correo: " id="ol2"
+                                        inlineStyle="font-weight:bolder;"/><af:outputText value="#{bindings.EmailAddress.inputValue}"
+                                                                                          id="ot3"/>
+                      </td>
+                      <td width="50%">
+                        <af:outputLabel value="Estatus: " id="ol4"
+                                        inlineStyle="font-weight:bolder;"/><af:outputText value="#{bindings.Estatus.inputValue}"
+                                                                                          id="ot4"/>
+                      </td>
+                    </tr>
+                  </table>
+                  <af:separator id="s1"/>
+                  <af:table id="md1"
+                            rows="#{bindings.PasajerosPorPNR1.rangeSize}"
+                            fetchSize="#{bindings.PasajerosPorPNR1.rangeSize}"
+                            emptyText="#{bindings.PasajerosPorPNR1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            var="row"
+                            value="#{bindings.PasajerosPorPNR1.collectionModel}"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.PasajerosPorPNR1.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.PasajerosPorPNR1.collectionModel.makeCurrent}"
+                            rowSelection="single" width="700"
+                            inlineStyle="height:196px;">
+                    <af:column headerText="#{bindings.PasajerosPorPNR1.hints.SolicitudId.label}"
+                               sortProperty="SolicitudId" sortable="false"
+                               id="c25">
+                      <af:outputText value="#{row.SolicitudId}" id="ot13">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.PasajerosPorPNR1.hints.SolicitudId.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.PasajerosPorPNR1.hints.TktEmitido.label}"
+                               sortProperty="TktEmitido" sortable="false"
+                               id="c34">
+                      <af:outputText value="#{row.TktEmitido}" id="ot36"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.PasajerosPorPNR1.hints.TipoPasajero.label}"
+                               sortProperty="TipoPasajero" sortable="false"
+                               id="c28">
+                      <af:outputText value="#{row.TipoPasajero}" id="ot24"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.PasajerosPorPNR1.hints.Nombre.label}"
+                               sortProperty="Nombre" sortable="false" id="c4">
+                      <af:outputText value="#{row.Nombre}" id="ot9"/>
+                    </af:column>
+                    <af:column id="c2" headerText="Costo">
+                      <af:outputText value="#{row.Costo}" id="ot5">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.PasajerosPorPNR1.hints.Costo.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column id="c1" headerText="Seleccionar">
+                      <af:selectBooleanCheckbox value="#{row.bindings.Seleccionar.inputValue}"
+                                                label="#{row.bindings.Seleccionar.label}"
+                                                shortDesc="#{bindings.PasajerosPorPNR1.hints.Seleccionar.tooltip}"
+                                                id="sbc1"
+                                                valueChangeListener="#{ReembolsoGeneral.ValidaCheck}"
+                                                autoSubmit="true"/>
+                    </af:column>
+                  </af:table>
+                  <af:separator id="s3"/>
+                  <af:table partialTriggers="::md1"
+                            rows="#{bindings.DetalleItinerario2.rangeSize}"
+                            fetchSize="#{bindings.DetalleItinerario2.rangeSize}"
+                            emptyText="#{bindings.DetalleItinerario2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            var="row"
+                            value="#{bindings.DetalleItinerario2.collectionModel}"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.DetalleItinerario2.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.DetalleItinerario2.collectionModel.makeCurrent}"
+                            rowSelection="single" id="t1"
+                            inlineStyle="height:107px;" width="1000">
+                    <af:column headerText="#{bindings.DetalleItinerario2.hints.SolRutaId.label}"
+                               sortProperty="SolRutaId" sortable="false"
+                               id="c24">
+                      <af:outputText value="#{row.SolRutaId}" id="ot33">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DetalleItinerario2.hints.SolRutaId.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.DetalleItinerario2.hints.SolicitudId.label}"
+                               sortProperty="SolicitudId" sortable="false"
+                               id="c14">
+                      <af:outputText value="#{row.SolicitudId}" id="ot6">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DetalleItinerario2.hints.SolicitudId.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.DetalleItinerario2.hints.Orden.label}"
+                               sortProperty="Orden" sortable="false" id="c30">
+                      <af:outputText value="#{row.Orden}" id="ot25">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DetalleItinerario2.hints.Orden.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.DetalleItinerario2.hints.Origen.label}"
+                               sortProperty="Origen" sortable="false" id="c33">
+                      <af:outputText value="#{row.Origen}" id="ot8"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.DetalleItinerario2.hints.Destino.label}"
+                               sortProperty="Destino" sortable="false" id="c29">
+                      <af:outputText value="#{row.Destino}" id="ot31"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.DetalleItinerario2.hints.Fecha.label}"
+                               sortProperty="Fecha" sortable="false" id="c10">
+                      <af:outputText value="#{row.Fecha}" id="ot34">
+                        <af:convertDateTime pattern="#{bindings.DetalleItinerario2.hints.Fecha.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.DetalleItinerario2.hints.ClaveRuta.label}"
+                               sortProperty="ClaveRuta" sortable="false"
+                               id="c18">
+                      <af:outputText value="#{row.ClaveRuta}" id="ot14"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.DetalleItinerario2.hints.LineaAerea.label}"
+                               sortProperty="LineaAerea" sortable="false"
+                               id="c17">
+                      <af:outputText value="#{row.LineaAerea}" id="ot10"/>
+                    </af:column>
+                    <af:column id="c3"
+                               headerText="#{bindings.DetalleItinerario2.hints.Costo.label}">
+                      <af:outputText value="#{row.Costo}" id="ot7"/>
+                    </af:column>
+                  </af:table>
+                  <af:separator id="s4"/>
+                  <af:commandButton text="Reembolsar" id="cb1">
+                    <af:showPopupBehavior popupId="p1" triggerType="action"/>
+                  </af:commandButton>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelSplitter>
           </f:facet>
         </af:panelSplitter>
-      </f:facet>
-    </af:pageTemplate>
+        <af:popup id="p1" launcherVar="source" contentDelivery="lazyUncached"
+                  eventContext="launcher">
+          <af:dialog id="d2" title="Tickets a reembolsar" contentWidth="400"
+                     contentHeight="400">
+            <af:outputFormatted value="&lt;b>#{ReembolsoGeneral.parametroReembolso}&lt;/b>"
+                                id="of1"/>
+          </af:dialog>
+          <af:setPropertyListener from="#{source.attributes.atributoCliente}"
+                                  type="popupFetch"
+                                  to="#{viewScope.atributoCliente}"/>
+        </af:popup>
+      </af:form>
+      <af:resource type="javascript">
+        function openNav() {
+            document.getElementById("pt1:pt_r1:0:mySidenav").style.width = "25%";
+        }
+
+        function closeNav() {
+            document.getElementById("pt1:pt_r1:0:mySidenav").style.width = "0";
+        }
+      </af:resource>
+    </af:document>
   </f:view>
 </jsp:root>

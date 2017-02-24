@@ -18,6 +18,10 @@
               id="DetalleItinerario2Iterator"/>
     <page id="pageTemplateBinding"
           path="aeromx.template.templateAeromxPageDef" Refresh="ifNeeded"/>
+    <taskFlow id="pydtaskflowmenu1"
+              taskFlowId="/WEB-INF/aeromx/taskflow/pyd-task-flow-menu.xml#pyd-task-flow-menu"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ViewObjReembolso1Iterator" id="GlobalName">

@@ -9,10 +9,10 @@ body {
     z-index: 1;
     top: 130px;
     left: 0;
-    background-color: White;
+    background-color: transparent;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 90px;
+    padding-top: 10px;
     text-align:center;
 }
 

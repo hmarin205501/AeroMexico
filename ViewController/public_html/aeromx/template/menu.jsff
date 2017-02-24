@@ -1,2 +1,39 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"></jsp:root>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:h="http://java.sun.com/jsf/html">
+ <af:document id="doc">
+  <af:panelGroupLayout id="mySidenav" styleClass="sidenav">
+   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&amp;times;</a>
+   <h:graphicImage url="/resource/image/cambio_asiento.png" id="menu1"
+                   width="60" height="60" styleClass="imgU">
+    <a href="#">Cambio de Asiento</a>
+   </h:graphicImage>
+   <h:graphicImage url="/resource/image/cambio_fecha.png" id="menu2" width="60"
+                   height="60" styleClass="imgD">
+    <a href="#">Cambio de Fecha</a>
+   </h:graphicImage>
+   <h:graphicImage url="/resource/image/lista_espera.png" id="menu3" width="60"
+                   height="60" styleClass="imgT">
+    <a href="#">Lista de Espera</a>
+   </h:graphicImage>
+   <h:graphicImage url="/resource/image/reembolso.png" id="menu4" width="60"
+                   height="60" styleClass="imgC">
+    <a href="#">Reembolso</a>
+   </h:graphicImage>
+  </af:panelGroupLayout>
+  <af:panelGroupLayout id="icono">
+   <span style="font-size:30px;cursor:pointer;margin-left:20px;"
+         onclick="openNav()">☰ Menu</span>
+  </af:panelGroupLayout>
+  <af:resource type="javascript">
+    function openNav() {
+        document.getElementById("pt1:pt_r1:0:mySidenav").style.width = "25%";
+    }
+
+    function closeNav() {
+        document.getElementById("pt1:pt_r1:0:mySidenav").style.width = "0";
+    }
+  </af:resource>
+ </af:document>
+</jsp:root>

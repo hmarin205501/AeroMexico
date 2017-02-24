@@ -15,9 +15,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">211.29883</property>
+         name="y">188.29883</property>
       <property
-         name="x">236.0</property>
+         name="x">226.0</property>
       <property
          name="pageFragment">true</property>
    </View>
